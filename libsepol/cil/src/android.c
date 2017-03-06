@@ -723,8 +723,7 @@ static int __attributize_helper(struct cil_tree_node *node, uint32_t *finished, 
 		rc = SEPOL_ERR;
 		goto exit;
 	case CIL_FSUSE:
-		/* not allowed in plat-policy, but types present, throw error if attributee */
-		cil_attrib_fsuse(node, args);
+		rc = cil_attrib_fsuse(node, args);
 		if (rc != SEPOL_OK) {
 			goto exit;
 		}
